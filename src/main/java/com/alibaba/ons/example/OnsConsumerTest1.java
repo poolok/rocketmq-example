@@ -1,5 +1,9 @@
 package com.alibaba.ons.example;
 
+import com.aliyun.openservices.ons.api.*;
+
+import java.util.Properties;
+
 /**
  * 创建: rocketmq-example
  * 描述:
@@ -8,4 +12,19 @@ package com.alibaba.ons.example;
  * 创建时间:15-12-17 下午5:45
  */
 public class OnsConsumerTest1 {
+    public static void main(String[] args) {
+        Properties properties = new Properties();
+        properties.put(PropertyKeyConst.ConsumerId, "CID_NJB_00001");
+        properties.put(PropertyKeyConst.AccessKey, "flQGIFXb7cmRTHbb");
+        properties.put(PropertyKeyConst.SecretKey, "L6tdBc48FKoSOJ4D2fngYqGvGPWqgx");
+        Consumer consumer = ONSFactory.createConsumer(properties);
+        consumer.subscribe("MyTest1", "*", new MessageListener() {
+            public Action consume(Message message, ConsumeContext context) {
+                System.out.println("Receive: " + message);
+                return Action.CommitMessage;
+            }
+        });
+        consumer.start();
+        System.out.println("Consumer Started");
+    }
 }
