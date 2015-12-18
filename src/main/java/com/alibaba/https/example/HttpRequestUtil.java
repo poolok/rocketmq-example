@@ -203,37 +203,6 @@ public class HttpRequestUtil {
             return null;
         }
     }
-    /**
-     * @Title: getHttpsClient
-     * @Description:https请求配置（二），留待备用
-     * @author: luocan
-     * @Create: 2014年9月2日 下午9:56:53
-     * @Modify: 2014年9月2日 下午9:56:53
-     * @param:
-     * @return:
-     */
-    public static HttpClient wrapClient(HttpClient base) {
-        try {
-            //TLS是SSL的继承者
-            SSLContext ctx = SSLContext.getInstance("TLS");
-            X509TrustManager tm = new X509TrustManager() {
-                public X509Certificate[] getAcceptedIssuers() {
-                    return null;
-                }
-                public void checkClientTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
-                public void checkServerTrusted(X509Certificate[] arg0, String arg1) throws CertificateException {}
-            };
-            ctx.init(null, new TrustManager[] { tm }, null);
-            SSLSocketFactory ssf = new SSLSocketFactory(ctx, SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER);
-            SchemeRegistry registry = new SchemeRegistry();
-            registry.register(new Scheme("https", 443, ssf));
-            ThreadSafeClientConnManager mgr = new ThreadSafeClientConnManager(registry);
-            return new DefaultHttpClient(mgr, base.getParams());
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            return null;
-        }
-    }
 
 
     /**
@@ -259,7 +228,7 @@ public class HttpRequestUtil {
         //params.put("reqWofinance", "<?xml version=\"1.0\" encoding=\"UTF-8\"?><AIPAYTRADE><INFO><PARTNER_ID>100001</PARTNER_ID><SIGNED_MSG>a16c7f44ad9559bb4e436a7d63c77b3c875716b26671bce184c54898dc0bcc5919549fc03caff8eef32b62b8ffae9785b450fd5394f0b4ced697e2c3cc1c517a9d46132241df44b51657cc8739fe3ba3bd5068a8996d7b1e6e3d2a00d8e3127fedd66635829b9a12cd8e15d55a815a8c35c9cbbc1ce6950d7dfc102e0aa8970973ae19762144d2ed52449b8fcc10046b029db83c72761a5326c7ed4d71e9286a17f2e41d87ec4faeeacb47e77da739f56084111497206fa1a134fb362ef3418a58c5bf20f8b4a020696f41b0fba5666a65a77b188f2ec9ca996933c8a0a38976dff211c352d0f067ee4c9c3ab24ed45a2714c1b3462a18bf25ec99f558c73844</SIGNED_MSG></INFO><BODY><PARTNER_ACCT_ID>59a4332</PARTNER_ACCT_ID><BANK_NO>105</BANK_NO><CARD_NO>6259650052010912</CARD_NO><CARD_NAME>麦联叨</CARD_NAME><BANK_PHONE>18601179629</BANK_PHONE><BIND_FLAG>1</BIND_FLAG><BIND_TIME>2014-09-06 21:20:10</BIND_TIME><ACCT_RESERVED_FIELD1>59</ACCT_RESERVED_FIELD1><ACCT_RESERVED_FIELD2></ACCT_RESERVED_FIELD2><ACCT_RESERVED_FIELD3></ACCT_RESERVED_FIELD3></BODY></AIPAYTRADE>");
         params1.put("access_token", "1313");
         long begin = System.currentTimeMillis();
-        System.out.println(doGet("104","https://open.woego.cn:443","utf-8",params1));
+        System.out.println(doGet("104","https://132.37.5.196:14823/route/wofinancecmb","utf-8",params1));
         long end = System.currentTimeMillis();
         System.err.println("+++++++++++++++++++++++++++++++++++++++++++");
         System.err.println(end-begin);

@@ -9,7 +9,7 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <!-- rocketmq -->
+        <!-- rocketmq
         <dependency>
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-client</artifactId>
@@ -20,7 +20,7 @@
             <groupId>com.alibaba.rocketmq</groupId>
             <artifactId>rocketmq-srvutil</artifactId>
             <version>3.2.6</version>
-        </dependency>
+        </dependency>-->
         <!-- ons -->
         <dependency>
             <groupId>com.aliyun.openservices</groupId>
