@@ -14,9 +14,9 @@ import java.util.Properties;
 public class OnsConsumerTest1 {
     public static void main(String[] args) {
         Properties properties = new Properties();
-        properties.put(PropertyKeyConst.ConsumerId, "CID_NJB_00001");
-        properties.put(PropertyKeyConst.AccessKey, "flQGIFXb7cmRTHbb");
-        properties.put(PropertyKeyConst.SecretKey, "L6tdBc48FKoSOJ4D2fngYqGvGPWqgx");
+        properties.put(PropertyKeyConst.ConsumerId, "");
+        properties.put(PropertyKeyConst.AccessKey, "");
+        properties.put(PropertyKeyConst.SecretKey, "");
         Consumer consumer = ONSFactory.createConsumer(properties);
         consumer.subscribe("MyTest1", "*", new MessageListener() {
             public Action consume(Message message, ConsumeContext context) {
