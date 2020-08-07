@@ -16,8 +16,8 @@ public class OnsProducerTest1 {
     public static void main(String[] args) {
         Properties properties = new Properties();
         properties.put(PropertyKeyConst.ProducerId, "PID_NJB_00001");
-        properties.put(PropertyKeyConst.AccessKey, "flQGIFXb7cmRTHbb");
-        properties.put(PropertyKeyConst.SecretKey, "L6tdBc48FKoSOJ4D2fngYqGvGPWqgx");
+        properties.put(PropertyKeyConst.AccessKey, "");
+        properties.put(PropertyKeyConst.SecretKey, "");
         Producer producer = ONSFactory.createProducer(properties);
 
         //在发送消息前，必须调用start方法来启动Producer，只需调用一次即可。
